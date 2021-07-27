@@ -1,12 +1,20 @@
-function number(a){
-return a % 2;
+function getNumberType(num) {
+  if (isNaN(num) || typeof num === "string") {
+    console.error("Please provide a valid number");
+    return;
+  }
+
+  const remainder = num % 2;
+
+  if (remainder === 0) {
+    return "even";
+  }
+
+  return "odd";
 }
 
-var val = number(3);
-
-if (val == 0 ) {
-  console.log("even");
-}
-else{
-  console.log("odd");
-}
+console.log(getNumberType("2"));
+console.log(getNumberType(2));
+console.log(getNumberType([]));
+console.log(getNumberType(boolean));
+console.log(getNumberType(109));
